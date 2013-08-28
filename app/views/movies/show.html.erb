@@ -1,0 +1,27 @@
+<div class="nav">
+	<% if current_user %>
+		welcome <%= current_user.name %>
+		<%= link_to "Sign Out", signout_path %>
+	<% else %>
+		<%= link_to "Sign in with twitter", "/auth/twitter" %>
+	<% end %>
+</div> 
+<div class="flash">
+	<% flash.each do |name, msg| %>
+		<%= content_tag :div, msg,  :id => "flash_#{name}"%>
+	<% end %>
+</div>
+<ul>
+<%unless @movies.nil? %>
+	<% @movies.each do |movie| %>
+		<li class="film-row">
+			<% if movie[:poster] %>
+				<%= image_tag movie[:poster][:imdb], :alt => movie[:title] %><br/>
+			<%end%>
+			<a href= <%=movie[:imdb_url]%> ><%= movie[:title] %></a>
+		</li>
+	<% end %>
+<% else %>
+		<li>No Data</li> 
+<% end %> 
+</ul>
