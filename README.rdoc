@@ -1,5 +1,1 @@
-This is an experimental RoR applicationusing mymovieapi.com to find movies.
-
--using omniauth-twitter
--using mymovieapi.com api
-
+This is an experimental RoR application using mymovieapi.com to find movies and omniauth-twitter for "dumb" authorization.
